@@ -12,10 +12,10 @@
         <nav>
             <ul>
                 <li><a href="#" onclick="showHomePage()">Home</a></li>
-                <li><a href="#">Trending</a></li>
+                <li><a href="#" onclick="showTrendingPage()">Trending</a></li>
                 <li><a href="#">Series</a></li>
                 <li><a href="#">Movies</a></li>
-                <li><a href="#">Recommended</a></li>
+                <li><a href="#" onclick="showRecommemdedPage()">Recommended</a></li>
                 <form id="search-form">
                     <input type="text" id="search-input" placeholder="Search...">
                     <button type="submit">Search</button>
@@ -140,6 +140,32 @@
             document.getElementById('search-input').value = '';
             const contentCards = document.querySelectorAll('.content-card');
             contentCards.forEach(card => {
+                card.style.display = 'block';
+            });
+        }
+        
+        function showTrendingPage() {
+            document.getElementById('details').style.display = 'none';
+            document.getElementById('trending').style.display = 'block';
+            document.getElementById('recommended').style.display = 'none'; // Hide the Recommended section
+        
+            // Clear search input and show all content cards in Trending section
+            document.getElementById('search-input').value = '';
+            const trendingContentCards = document.querySelectorAll('#trending .content-card');
+            trendingContentCards.forEach(card => {
+                card.style.display = 'block';
+            });
+        }
+        
+        function showRecommendedPage() {
+            document.getElementById('details').style.display = 'none';
+            document.getElementById('trending').style.display = 'none';
+            document.getElementById('recommended').style.display = 'block'; // Show the Recommended section
+        
+            // Clear search input and show all content cards in Recommended section
+            document.getElementById('search-input').value = '';
+            const recommendedContentCards = document.querySelectorAll('#recommended .content-card');
+            recommendedContentCards.forEach(card => {
                 card.style.display = 'block';
             });
         }
