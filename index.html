@@ -136,7 +136,16 @@
             document.getElementById('details').style.display = 'none';
             document.getElementById('trending').style.display = 'block';
             document.getElementById('recommended').style.display = 'block';
+        
+            // Clear search input and show all content cards
+            document.getElementById('search-input').value = '';
+            const contentCards = document.querySelectorAll('.content-card');
+            contentCards.forEach(card => {
+                card.style.display = 'block';
+            });
         }
+        
+        
 
         document.getElementById('search-form').addEventListener('submit', function(event) {
             event.preventDefault();
